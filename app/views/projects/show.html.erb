@@ -1,0 +1,33 @@
+<%= stylesheet_link_tag("projects") %>
+
+<p class="card-text">
+  <%= @project.user.email %> (
+  <%= raw(@project.user.admin? ? '<i class="fas fa-crown"></i> Admin' : '<i class="fas fa-user"></i> User') %>
+  )
+</p>
+
+  <h1 class="form-group text-center">Project!!</h1>
+
+  <div class="d-flex justify-content-center align-items-center mb-3">
+    <%= link_to edit_project_path(@project), class: "text-dark mr-2" do %>
+      <%= content_tag(:i, '', class: 'fas fa-pencil-alt') %>
+    <% end %>
+    <p class="card-text">Created by: <%= @project.user.email %></p>
+  </div>
+
+<div class = "projects_design_page">
+  <div class="projects_page_left_hand">
+    <div class="mr-4">
+      <h5>Members:</h5>
+      <div class="d-flex mb-3">
+        <%= link_to edit_project_path(@project), class: "text-dark mr-2" do %>
+          <%= content_tag(:i, '', class: 'fas fa-pencil-alt') %>
+        <% end %>
+        <p class="card-text"><%= @project.user.email %></p>
+      </div>
+      <%= render @project %>
+    </div>
+
+  </div>
+
+</div>
